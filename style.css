@@ -45,5 +45,10 @@ body{
   text-align: left;
   border-radius: 4px;
   cursor: pointer;
+  transition: all 0.3s;
 
+}
+.btn:hover{
+  background: #222;
+  color: whitesmoke;
 }
