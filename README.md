@@ -22,7 +22,7 @@ To run the quiz app locally, follow these steps:
 Open your terminal or command prompt, navigate to the directory where you want to store the project, and then run the following command to clone the repo:
 
 ```bash
-git clone https://github.com/your-username/quiz-app.git
+git clone https://github.com/Marylucy123450/Quiz-App.git
 
 
 ##Open the project in VS Code
