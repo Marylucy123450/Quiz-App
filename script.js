@@ -82,6 +82,15 @@ function selectAnswer(event) {
   } else {
     selectedButton.classList.add("incorrect");
   }
+
+  // Highlight the correct answer
+  Array.from(answerButton.children).forEach(button => {
+    if (button.dataset.correct === "true") {
+      button.classList.add("correct"); // Mark correct answer
+    }
+    button.disabled = true; // Disable all buttons
+  });
+
   nextButton.style.display = "block"; // Show "Next" button after selection
 }
 
@@ -91,5 +100,29 @@ function resetState(){
     answerButton.removeChild(answerButton.firstChild); // Remove previous answer buttons
   }
 }
+
+function showScore(){
+  resetState();
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  nextButton.innerHTML = "Play Again";
+  nextButton.style.display = "block";
+}
+
+function handleNextButton(){
+  currentQuestionIndex++;
+  if(currentQuestionIndex < questions.length){
+    showQuestion();
+  }else{
+    showScore();
+  }
+}
+
+nextButton.addEventListener("click", ()=>{
+  if(currentQuestionIndex < questions.length){ // Corrected typo here
+    handleNextButton();
+  }else{
+    startQuiz();
+  }
+})
 
 startQuiz();
